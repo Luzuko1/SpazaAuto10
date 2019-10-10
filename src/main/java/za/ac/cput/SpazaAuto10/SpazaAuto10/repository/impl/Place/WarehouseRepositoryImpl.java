@@ -7,6 +7,16 @@ import java.util.Map;
 
 public class WarehouseRepositoryImpl implements WarehouseRepository
 {
+    private static WarehouseRepositoryImpl repository = null;
+    private Map<String, Warehouse> warehouseMap;
+
+
+    private static WarehouseRepository getRepository()
+    {
+        if(repository==null)
+            repository = new WarehouseRepositoryImpl();
+        return repository;
+    }
     @Override
     public Map<String, Warehouse> getAll()
     {
@@ -16,25 +26,30 @@ public class WarehouseRepositoryImpl implements WarehouseRepository
     @Override
     public Warehouse create(Warehouse warehouse)
     {
-        return null;
+        this.warehouseMap.put(warehouse.getWarehouse_name(),warehouse);
+        Warehouse savedCust = this.warehouseMap.get(warehouse.getWarehouse_name());
+        return savedCust;
     }
 
     @Override
     public Warehouse update(Warehouse warehouse)
     {
-        return null;
+        this.warehouseMap.put(warehouse.getWarehouse_name(),warehouse);
+        Warehouse savedCust = this.warehouseMap.get(warehouse.getWarehouse_name());
+        return savedCust;
     }
 
     @Override
     public void delete(String s)
     {
-
+        this.warehouseMap.remove(s);
     }
 
     @Override
     public Warehouse read(String s)
     {
-        return null;
+        Warehouse warehouse = this.warehouseMap.get(s);
+        return warehouse;
     }
 }
 

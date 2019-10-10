@@ -4,6 +4,7 @@ public class Customer
 {
     private String custName;
     private double shoppingCost;
+    private String custId;
 
     public Customer()
     {
@@ -13,6 +14,7 @@ public class Customer
     {
         this.custName = builder.custName;
         this.shoppingCost = builder.shoppingCost;
+        this.custId = builder.custId;
     }
     public Customer(String custName, double shoppingCost)
     {
@@ -44,13 +46,18 @@ public class Customer
 
         private String custName;
         private double shoppingCost;
+        private String custId;
 
         public Customer.Builder custName(String custName)
         {
             this.custName = custName;
             return this;
         }
-
+        public Customer.Builder custId(String custId)
+        {
+            this.custId = custId;
+            return this;
+        }
         public Customer.Builder shoppingCost(double amount) {
             this.shoppingCost = amount;
             return this;

@@ -9,13 +9,14 @@ import java.util.Map;
 public class StoreRepositoryImpl implements StoreRepository
 {
     private static StoreRepositoryImpl repository = null;
-    private Map<String, Store> stores;
+    private Map<String, Store> storeMap;
 
     private StoreRepositoryImpl()
     {
-        this.stores = new HashMap<>();
+        this.storeMap = new HashMap<>();
     }
-    public static StoreRepositoryImpl getRepository()
+
+    public static StoreRepository getRepository()
     {
         if(repository ==null) repository = new StoreRepositoryImpl();
         return repository;
@@ -31,25 +32,30 @@ public class StoreRepositoryImpl implements StoreRepository
     @Override
     public Store create(Store store)
     {
-        return null;
+        this.storeMap.put(store.getStore_name(),store);
+        Store savedStore = this.storeMap.get(store.getStore_name());
+        return savedStore;
     }
 
     @Override
     public Store update(Store store)
     {
-        return null;
+        this.storeMap.put(store.getStore_name(),store);
+        Store savedStore = this.storeMap.get(store.getStore_name());
+        return savedStore;
     }
 
     @Override
     public void delete(String s)
     {
-
+        this.storeMap.remove(s);
     }
 
     @Override
     public Store read(String s)
     {
-        return null;
+        Store store = this.storeMap.get(s);
+        return store;
     }
 }
 

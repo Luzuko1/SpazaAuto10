@@ -1,11 +1,13 @@
 package za.ac.cput.SpazaAuto10.SpazaAuto10.repository.impl.People;
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.SpazaAuto10.SpazaAuto10.domain.People.Customer;
 import za.ac.cput.SpazaAuto10.SpazaAuto10.repository.interfaces.People.CustomerRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Repository("CustomerRepository")
 public class CustomerRepositoryImpl implements CustomerRepository
 {
     private static CustomerRepositoryImpl repository = null;
@@ -16,7 +18,7 @@ public class CustomerRepositoryImpl implements CustomerRepository
         this.customerMap = new HashMap<>();
     }
 
-    public static CustomerRepositoryImpl getRepository()
+    public static CustomerRepository getRepository()
     {
         if(repository == null)
             repository = new CustomerRepositoryImpl();
@@ -26,7 +28,7 @@ public class CustomerRepositoryImpl implements CustomerRepository
     @Override
     public Map<String, Customer> getAll()
     {
-        return null;
+        return this.customerMap;
     }
 
     @Override

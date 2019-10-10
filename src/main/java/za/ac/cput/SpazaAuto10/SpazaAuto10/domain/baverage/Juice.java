@@ -20,7 +20,7 @@ public class Juice extends Drinks
         this.brand_name = brand_nname;
     }
 
-    public Juice(int drink_ID, int size, int quantity, String drink_Name, String brand_nname)
+    public Juice(String drink_ID, int size, int quantity, String drink_Name, String brand_nname)
     {
         super(drink_ID, size, quantity, drink_Name);
         this.brand_name = brand_nname;

@@ -1,15 +1,19 @@
 package za.ac.cput.SpazaAuto10.SpazaAuto10.repository.impl.People;
 
+import org.springframework.stereotype.Repository;
 import za.ac.cput.SpazaAuto10.SpazaAuto10.domain.People.Owner;
 import za.ac.cput.SpazaAuto10.SpazaAuto10.repository.interfaces.People.OwnerRepository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
+@Repository("OwnerRepository")
 public class OwnerRepositoryImpl implements OwnerRepository
 {
     private static OwnerRepositoryImpl repository = null;
     private Map<String, Owner> owners;
+    private Set<Owner> ownerSet;
 
 
     private OwnerRepositoryImpl()
@@ -26,6 +30,12 @@ public class OwnerRepositoryImpl implements OwnerRepository
     public Map<String, Owner> getAll()
     {
         return this.owners;
+    }
+
+    @Override
+    public Set<Owner> getAlls()
+    {
+        return this.ownerSet;
     }
 
     @Override
@@ -56,4 +66,5 @@ public class OwnerRepositoryImpl implements OwnerRepository
         Owner owner = this.owners.get(id);
         return owner;
     }
+
 }
