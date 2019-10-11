@@ -39,12 +39,13 @@ public class TransactionSecurity extends WebSecurityConfigurerAdapter
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/SpazaAuto10/owner/create/**").hasRole(ADMIN_ROLE)
-                .antMatchers(HttpMethod.GET, "/SpazaAuto10/**/owner/getall/**").hasRole(ADMIN_ROLE)
+                .antMatchers(HttpMethod.GET, "/SpazaAuto10/owner/getall").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.GET, "/SpazaAuto10/owner/getall/**").hasRole(ADMIN_ROLE)
                 .antMatchers(HttpMethod.POST, "SpazaAuto10/**/read/**").hasRole(USER_ROLE)
                 .and()
-                 .csrf().disable()
-                .formLogin().disable();
+                .csrf()
+                .disable()
+                .formLogin();
     }
 
     @Bean

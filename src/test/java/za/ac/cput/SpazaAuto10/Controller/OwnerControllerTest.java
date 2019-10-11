@@ -33,7 +33,7 @@ public class OwnerControllerTest
        owner.setOwnerName("Luzuko");
         ResponseEntity result = restTemplate.withBasicAuth("Luzuko","12345")
                 .getForEntity(baseURL+"/getall/",String.class);
-        //.postForEntity(baseURL+"/create/",emp, String.class);
+       // .postForEntity(baseURL+"/create/",owner, String.class);
         System.out.println(result.getBody());
         assertEquals(HttpStatus.OK, result.getStatusCode());
     }
