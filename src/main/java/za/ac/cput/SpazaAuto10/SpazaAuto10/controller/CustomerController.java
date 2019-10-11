@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/spazaAuto10/customer")
+@RequestMapping("/SpazaAuto10/customer")
 public class CustomerController
 {
     @Autowired
@@ -49,7 +49,7 @@ public class CustomerController
         return service.create(cust);
     }
 
-    @GetMapping(value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getall", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getAll()
     {
         ResponseObj responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(),"Success");
